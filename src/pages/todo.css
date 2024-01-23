@@ -1,6 +1,7 @@
 
 .main-div{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.399) 0px 1px 4px;
+    background-color: #fffffffb;
     padding: 10px 30px ;
     width: 400px;
     border-radius: 7px;
@@ -36,6 +37,11 @@
 #list-item{
     text-decoration: line-through;
     opacity: 0.7;
+}
+
+.input-validation{
+  color: rgb(249, 4, 4);
+  font-size: 15px;
 }
 
 

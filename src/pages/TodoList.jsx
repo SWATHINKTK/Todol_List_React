@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { MdEditNote } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoSave } from "react-icons/io5";
@@ -8,6 +8,7 @@ function TodoList() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [editId,setEditId] = useState(0);
+  const refObj = useRef();
 
   const handleInputChange = (e) => {
     setNewTask(e.target.value);
@@ -31,6 +32,11 @@ function TodoList() {
               setEditId(0);
               setNewTask('')
         }
+    }else{
+        refObj.current.innerHTML = '* enter a task properly.';
+        setTimeout(()=>{
+          refObj.current.innerHTML = '';
+        },2000);
     }
   };
 
@@ -64,12 +70,12 @@ function TodoList() {
                 value={newTask}
                 onChange={handleInputChange}
             />
-
             <button className="button" onClick={addingNewTask}>
                 {editId ? 'Edit' : 'Add Task'}
             </button>
-      </div>
-      <hr />
+        </div>
+        <span className="input-validation" ref={refObj}></span>
+        <hr />
 
       <div className="list">
             <ul style={{ listStyleType: "none", padding: "0px" }}>
